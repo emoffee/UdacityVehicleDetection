@@ -52,7 +52,7 @@ I have no answers to support the observation, and therefore more explorations ar
 I intend to only cover the bottom half the whole horizon because the pipeline appears not to capture anything in the sky and the left & right sides.
 
 Sample image:
-![Sample image of bounding boxes around classified windows](./output_video/example1.png)
+![Sample image of bounding boxes around classified windows](./output_images/example1.png)
 ---
 
 ### III. Video Implementation
@@ -66,11 +66,8 @@ Sample image:
 *  Construct a heatmap from very recent frames of video
 *  dismiss false positives by applying thresholds.
 
-Sample image of heatmap:
+Sample image of heatmap & labels:
 ![](./output_images/heatmap.png)
-
-Sample image of labels:
-![](./output_images/labels.png)
 
 ---
 
