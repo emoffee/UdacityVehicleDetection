@@ -8,7 +8,7 @@ The objective of this project is to create a robust software pipeline to contino
 [FE]: ./lablearn/Proceedings/feature_extraction.png
 [SW1]: ./lablearn/Proceedings/slidingwindows1.png
 [SW2]: ./lablearn/Proceedings/slidingwindows2.png
-[image4]: ./lablearn/Proceedings/windows.png
+[ws]: ./lablearn/Proceedings/windows.png
 [hm1]: ./lablearn/Proceedings/heatmap1.png
 [hm2]: ./lablearn/Proceedings/heatmap2.png
 [HT]: ./lablearn/Proceedings/HeatThresholds.png
@@ -79,8 +79,10 @@ Another interesting fact I obeserve is that, the model had been extremely overfi
 * Define windows to search with lesson function `slide_window`.
 * Implement sliding window search with lesson function `search_windows`.
 
+To learn how the sliding window works, I decided to search random window positions at random scales all over the image and came up with this:
+![alt text][WS]
 
-I started with locating the bounds of X & Y values and narrowing valid areas for sliding windows, in order to eliminate data noises and improve pipeline processing efficiency. Several observations determines the bounds of X & Y I choose:
+Obviously this is not we want. So i started to locate the bounds of X & Y values and to narrow valid areas for sliding windows, in order to eliminate data noises and improve pipeline processing efficiency. Several observations determines the bounds of X & Y I choose:
 * The car in the project video is at the very left lane and therefore any area with a X value less than **450** can be excluded.
 * The area with a Y value less than 350 is blue sky.
 * The area with a Y value slightly greater than 600 should be excluded.
