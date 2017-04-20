@@ -15,7 +15,7 @@ The goals / steps of this project are the following:
 * Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
 * Estimate a bounding box for vehicles detected.
 
-Here are links to the labeled data for [vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip) and [non-vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip) examples that I used to train my linear SVC classifier.  These example images come from a combination of the [GTI vehicle image database](http://www.gti.ssr.upm.es/data/Vehicle_database.html), the [KITTI vision benchmark suite](http://www.cvlibs.net/datasets/kitti/), and examples extracted from the project video itself. Please notice that, all [vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip) images are PNG while all the [non-vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip) are JPEG. Therefore, a conversion is recommended to apply for image scale consistent.
+Here are links to the labeled data for [vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip) and [non-vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip) examples that I used to train my linear SVC classifier.  These example images come from a combination of the [GTI vehicle image database](http://www.gti.ssr.upm.es/data/Vehicle_database.html), the [KITTI vision benchmark suite](http://www.cvlibs.net/datasets/kitti/), and examples extracted from the project video itself. Please notice that, all [vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip) images are PNG while all the [non-vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip) are JPEG. Therefore, a conversion is recommended to apply for image scale consistency.
 
 Six example images for testing this pipeline on single frames are located in the `test_images` folder. Examples of the output from each stage of your pipeline are saved in the folder called `ouput_images`, and are included in this writeup for the project by describing what each image shows.   
 
@@ -28,6 +28,7 @@ Pipeline overview
 
 #### 1. Extract HOG features from the training images.
 First, the program reads in ALL `vehicle` and `non-vehicle` images by a pre-defined function 'ReadOImgs' which only accpets PNG & JPEG. As a result, 8792 images from 'vehicle' and 1125 'non-vehicle' are read into memory. To balance the sample numbers of these two classes, I chose a sample size of 800 to equalize them.
+
 Second, a composite function 'extract_features' (transform color, create histogram, get hog_features and concatenate color & shape features) are applied to create car_features & notcar_features, which are the input for a typical data preparation:
 * fit a per-column scaler
 * apply the scaler to X
